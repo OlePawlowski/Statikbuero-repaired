@@ -2110,7 +2110,19 @@ html.menu-open .header-drone-container {
   }
 }
 
-/* Desktop: Iframe Styles - KEINE Regeln, damit es sich wie direktes Embed verhält */
+/* Desktop: Iframe Styles */
+.main iframe,
+.main .frame {
+  width: 100%;
+  height: 100vh;
+  min-height: 700px;
+  border: none;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
 
 
 .main-inner{
