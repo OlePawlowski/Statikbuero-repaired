@@ -4617,26 +4617,47 @@ img.mfp-img{
 
 
 
-/* Hero Main und Iframe - nur Größen */
+/* Hero Main und Iframe Styles */
 .hero-main {
-  width: 100%;
+  position: relative;
+  overflow: visible;
+  min-height: 100vh;
   height: 100vh;
 }
 
+/* Auf Mobile: height: 100vh entfernen, damit man scrollen kann */
+@media (max-width: 991px) {
+  .hero-main {
+    height: auto !important;
+    min-height: auto !important;
+    overflow-y: auto !important;
+  }
+  
+  /* Auf index.html: Iframe-Bereich kann scrollen */
+  body.home-page .hero-main {
+    height: auto !important;
+    min-height: 100vh !important;
+  }
+  
+  /* Stelle sicher, dass html und body scrollen können */
+  html, body {
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    height: auto !important;
+    max-height: none !important;
+  }
+}
+
+/* Desktop: Iframe Styles */
 .hero-iframe {
   width: 100%;
   height: 100vh;
   min-height: 700px;
-}
-
-@media (max-width: 991px) {
-  .hero-main {
-    height: auto;
-    min-height: 100vh;
-  }
-  
-  .hero-iframe {
-    height: 400px;
-    min-height: auto;
-  }
+  border: none;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
 }
