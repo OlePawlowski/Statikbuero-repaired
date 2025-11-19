@@ -691,10 +691,6 @@ label.error{
   color: #fff;
 }
 
-.brand-logo {
-  display: none !important;
-}
-
 .brand-panel .brand-logo,
 .footer .brand-logo {
   display: inline-block !important;
@@ -1011,8 +1007,8 @@ label.error{
       backface-visibility: hidden;
       -webkit-overflow-scrolling: touch !important;
       /* Optimierung für flüssigeres Scrollen */
-      overscroll-behavior: contain;
-      -webkit-overflow-scrolling: touch;
+      overscroll-behavior: none;
+      touch-action: pan-y;
     }
     
     /* Scroll-Performance für Sections optimieren */
@@ -2021,6 +2017,17 @@ html.menu-open .header-drone-container {
     -webkit-overflow-scrolling: touch !important;
     height: auto !important;
     max-height: none !important;
+    touch-action: pan-y;
+  }
+  
+  /* Iframe auf Mobile anpassen für flüssiges Scrolling */
+  .main iframe,
+  .main .frame {
+    position: relative !important;
+    height: 100vh !important;
+    min-height: 100vh !important;
+    touch-action: pan-y;
+    pointer-events: auto;
   }
 }
 
@@ -3850,6 +3857,11 @@ img.mfp-img{
 
 @media (max-width: 991px) {
   
+  /* Section Title kleiner auf Mobile/Tablet */
+  .section-title {
+    font-size: 28px !important;
+  }
+  
   .clients {
     padding: 2rem 0;
   }
@@ -3916,7 +3928,7 @@ img.mfp-img{
   }
   
   h2, .h2, .section-title {
-    font-size: 32px !important;
+    font-size: 24px !important;
   }
   
   h3, .h3 {
