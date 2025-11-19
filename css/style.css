@@ -2017,17 +2017,6 @@ html.menu-open .header-drone-container {
     -webkit-overflow-scrolling: touch !important;
     height: auto !important;
     max-height: none !important;
-    touch-action: pan-y;
-  }
-  
-  /* Iframe auf Mobile anpassen für flüssiges Scrolling */
-  .main iframe,
-  .main .frame {
-    position: relative !important;
-    height: 100vh !important;
-    min-height: 100vh !important;
-    touch-action: pan-y;
-    pointer-events: auto;
   }
 }
 
@@ -2317,6 +2306,16 @@ html.menu-open .header-drone-container {
   border-color: rgba(255, 179, 68, 0.3);
   transform: translateY(-4px);
   box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+}
+
+/* Auf Mobile: Deaktiviere alle Transitions und Transforms für service-item */
+@media (max-width: 991px) {
+  .service-item,
+  .service-item:hover {
+    transition: none !important;
+    transform: none !important;
+    will-change: auto !important;
+  }
 }
 
 .service-item:last-child{
@@ -3928,7 +3927,7 @@ img.mfp-img{
   }
   
   h2, .h2, .section-title {
-    font-size: 24px !important;
+    font-size: 27px !important;
   }
   
   h3, .h3 {
@@ -4335,7 +4334,9 @@ img.mfp-img{
     background: #323232;
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
+    transition: none !important;
+    transform: none !important;
+    will-change: auto !important;
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
@@ -4343,8 +4344,8 @@ img.mfp-img{
   }
   
   .services-section .service-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    transform: none !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
   }
   
   .services-section .service-item img {
