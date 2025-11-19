@@ -1553,6 +1553,13 @@ html.menu-open .header-drone-container {
   transition: all 0.3s ease;
 }
 
+/* Mobile: Schriftgröße für Submenu-Links */
+@media (max-width: 991px) {
+  .nav-submenu li a {
+    font-size: 16px !important;
+  }
+}
+
 .nav-submenu li a:hover {
   -webkit-text-stroke: 1px #ffb344;
   color: #ffb344; /* Füllung mit Koralle */
