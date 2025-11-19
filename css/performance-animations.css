@@ -272,6 +272,31 @@ img {
   .project:hover {
     transform: none;
   }
+  
+  /* WICHTIG: Auf Mobile sofort alle Animationen deaktivieren und Elemente sichtbar machen */
+  /* Verhindert Layout-Shifts beim Scrollen */
+  .slide-in-left,
+  .slide-in-right,
+  .slide-in-up,
+  .fade-in,
+  .scroll-animate,
+  .animate-stagger {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
+  }
+  
+  .slide-in-left.animated,
+  .slide-in-right.animated,
+  .slide-in-up.animated,
+  .fade-in.animated,
+  .scroll-animate.animate {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+  }
 }
 
 /* ============================================

@@ -51,15 +51,25 @@
     // Auf Mobile: DEAKTIVIERE ALLE ANIMATIONEN KOMPLETT
     if (window.innerWidth <= 991) {
       var animatedElements = document.querySelectorAll(
-        '.slide-in-left, .slide-in-right, .slide-in-up, .fade-in, .scroll-animate'
+        '.slide-in-left, .slide-in-right, .slide-in-up, .fade-in, .scroll-animate, .animate-stagger'
       );
       animatedElements.forEach(function(element) {
         // Mache alle Elemente sofort sichtbar ohne Animation
+        // WICHTIG: Direkt inline styles setzen, um Layout-Shifts zu vermeiden
+        element.style.opacity = '1';
+        element.style.visibility = 'visible';
+        element.style.transform = 'none';
+        element.style.transition = 'none';
+        element.style.animation = 'none';
         element.classList.add('animated');
         if (element.classList.contains('scroll-animate')) {
           element.classList.add('animate');
         }
       });
+      // Disconnect Observer komplett auf Mobile
+      if (observer) {
+        observer.disconnect();
+      }
       return; // Beende Funktion auf Mobile
     }
     

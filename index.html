@@ -1444,7 +1444,16 @@ $(document).ready(function() {
     checkScroll(); // Check on load
   } else {
     // Auf Mobile: Mache alle scroll-animate Elemente sofort sichtbar
-    $('.scroll-animate').addClass('animate');
+    // WICHTIG: Direkt inline styles setzen, um Layout-Shifts zu vermeiden
+    $('.scroll-animate, .animate-stagger').each(function() {
+      $(this).css({
+        'opacity': '1',
+        'visibility': 'visible',
+        'transform': 'none',
+        'transition': 'none',
+        'animation': 'none'
+      }).addClass('animate');
+    });
   }
 
   // Enhanced Service Card Animations - NUR auf Desktop

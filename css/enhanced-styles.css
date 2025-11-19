@@ -1159,16 +1159,6 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
   }
   
-  /* Auf Mobile: Deaktiviere alle Transitions und Transforms */
-  @media (max-width: 991px) {
-    .service-item,
-    .service-item:hover {
-      transition: none !important;
-      transform: none !important;
-      will-change: auto !important;
-    }
-  }
-  
   .service-item img {
     max-width: 60px;
     margin: 0 auto 1rem;
