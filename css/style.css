@@ -2027,12 +2027,18 @@ html.menu-open .header-drone-container {
     max-height: none !important;
   }
   
-  /* Stelle sicher, dass Iframe Touch-Events empfangen kann */
+  /* Stelle sicher, dass Iframe Touch-Events empfangen kann - wie natives Spiel */
   .main iframe,
   .main .frame {
-    touch-action: manipulation !important; /* Verhindere doppeltes Tippen, erlaube Touch-Events */
+    touch-action: none !important; /* Alle Touch-Events gehen direkt an Iframe, keine Seiten-Interaktion */
     pointer-events: auto !important;
     position: relative !important;
+    overflow: hidden !important;
+  }
+  
+  /* Verhindere Seiten-Scrollen komplett auf Mobile wenn Iframe aktiv */
+  body.home-page .main {
+    overflow: hidden !important;
   }
 }
 
@@ -2119,12 +2125,18 @@ html.menu-open .header-drone-container {
     max-height: none !important;
   }
   
-  /* Stelle sicher, dass Iframe Touch-Events empfangen kann */
+  /* Stelle sicher, dass Iframe Touch-Events empfangen kann - wie natives Spiel */
   .main iframe,
   .main .frame {
-    touch-action: manipulation !important; /* Verhindere doppeltes Tippen, erlaube Touch-Events */
+    touch-action: none !important; /* Alle Touch-Events gehen direkt an Iframe, keine Seiten-Interaktion */
     pointer-events: auto !important;
     position: relative !important;
+    overflow: hidden !important;
+  }
+  
+  /* Verhindere Seiten-Scrollen komplett auf Mobile wenn Iframe aktiv */
+  body.home-page .main {
+    overflow: hidden !important;
   }
 }
 
@@ -2140,8 +2152,9 @@ html.menu-open .header-drone-container {
   top: 0;
   left: 0;
   z-index: 1;
-  pointer-events: auto; /* Stelle sicher, dass Iframe interaktiv ist */
-  touch-action: auto; /* Erlaube Touch-Events für Iframe */
+  pointer-events: auto;
+  touch-action: none; /* Verhindere Seiten-Scrollen, alle Touch-Events gehen direkt an Iframe */
+  overflow: hidden;
 }
 
 

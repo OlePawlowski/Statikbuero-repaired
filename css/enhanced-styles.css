@@ -1798,12 +1798,13 @@ h1, h2, h3, h4, h5, h6 {
     display: none !important;
   }
   
-  /* Iframe Responsive Fix */
+  /* Iframe Responsive Fix - wie natives Spiel */
   .main iframe {
     height: 400px !important;
     width: 100% !important;
-    touch-action: auto !important;
+    touch-action: none !important; /* Alle Touch-Events direkt an Iframe */
     pointer-events: auto !important;
+    overflow: hidden !important;
   }
   
   /* Project Carousel Mobile */
@@ -1871,8 +1872,9 @@ h1, h2, h3, h4, h5, h6 {
   .main iframe {
     height: 400px !important;
     width: 100% !important;
-    touch-action: auto !important;
+    touch-action: none !important; /* Alle Touch-Events direkt an Iframe */
     pointer-events: auto !important;
+    overflow: hidden !important;
   }
   
   .navbar-collapse {

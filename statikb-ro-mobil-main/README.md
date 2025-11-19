@@ -1,1 +1,0 @@
-# statikb-ro-mobil
