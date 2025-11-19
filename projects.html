@@ -2280,6 +2280,7 @@ $(document).ready(function() {
         closeMenu(); // Schließe Menü zuerst
         
         // Prüfe ob Link zu einer anderen Seite führt
+        var isExternalPage = href.indexOf('projects.html#') !== -1 || href.indexOf('index.html#') !== -1;
         var currentPage = window.location.pathname.split('/').pop() || 'index.html';
         var targetPage = null;
         

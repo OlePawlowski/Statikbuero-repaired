@@ -1362,7 +1362,7 @@ html.menu-open .header-drone-container {
   font-size: 1.2em;
   color: #ffb344; /* Koralle */
   text-decoration: none;
-  display: flex;
+  display: none !important;
   align-items: center;
   gap: 8px;
 }

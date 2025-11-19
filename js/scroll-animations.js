@@ -89,7 +89,7 @@
     initScrollAnimations();
   };
 
-  // Performance: Debounce für Resize-Events
+  // Performance: Debounce für Resize-Events mit passive listener
   var resizeTimeout;
   window.addEventListener('resize', function() {
     clearTimeout(resizeTimeout);
@@ -103,7 +103,7 @@
         observerOptions.threshold = 0.1;
       }
     }, 250);
-  });
+  }, { passive: true });
 
 })();
 
