@@ -2009,6 +2009,7 @@ html.menu-open .header-drone-container {
     height: auto !important;
     min-height: auto !important;
     overflow-y: auto !important;
+    touch-action: pan-y; /* Erlaube vertikales Scrollen, aber Touch-Events an Iframe weitergeben */
   }
   
   /* Auf index.html: Iframe-Bereich kann scrollen */
@@ -2024,6 +2025,14 @@ html.menu-open .header-drone-container {
     -webkit-overflow-scrolling: touch !important;
     height: auto !important;
     max-height: none !important;
+  }
+  
+  /* Stelle sicher, dass Iframe Touch-Events empfangen kann */
+  .main iframe,
+  .main .frame {
+    touch-action: auto !important;
+    pointer-events: auto !important;
+    position: relative !important;
   }
 }
 
@@ -2092,6 +2101,7 @@ html.menu-open .header-drone-container {
     height: auto !important;
     min-height: auto !important;
     overflow-y: auto !important;
+    touch-action: pan-y; /* Erlaube vertikales Scrollen, aber Touch-Events an Iframe weitergeben */
   }
   
   /* Auf index.html: Iframe-Bereich kann scrollen */
@@ -2108,6 +2118,14 @@ html.menu-open .header-drone-container {
     height: auto !important;
     max-height: none !important;
   }
+  
+  /* Stelle sicher, dass Iframe Touch-Events empfangen kann */
+  .main iframe,
+  .main .frame {
+    touch-action: auto !important;
+    pointer-events: auto !important;
+    position: relative !important;
+  }
 }
 
 /* Desktop: Iframe Styles */
@@ -2123,6 +2141,7 @@ html.menu-open .header-drone-container {
   left: 0;
   z-index: 1;
   pointer-events: auto; /* Stelle sicher, dass Iframe interaktiv ist */
+  touch-action: auto; /* Erlaube Touch-Events für Iframe */
 }
 
 
