@@ -4592,3 +4592,27 @@ img.mfp-img{
 
 
 
+
+/* Hero Main und Iframe - nur Größen */
+.hero-main {
+  width: 100%;
+  height: 100vh;
+}
+
+.hero-iframe {
+  width: 100%;
+  height: 100vh;
+  min-height: 700px;
+}
+
+@media (max-width: 991px) {
+  .hero-main {
+    height: auto;
+    min-height: 100vh;
+  }
+  
+  .hero-iframe {
+    height: 400px;
+    min-height: auto;
+  }
+}
