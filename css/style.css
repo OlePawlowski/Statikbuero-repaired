@@ -2030,7 +2030,7 @@ html.menu-open .header-drone-container {
   /* Stelle sicher, dass Iframe Touch-Events empfangen kann */
   .main iframe,
   .main .frame {
-    touch-action: auto !important;
+    touch-action: manipulation !important; /* Verhindere doppeltes Tippen, erlaube Touch-Events */
     pointer-events: auto !important;
     position: relative !important;
   }
@@ -2122,7 +2122,7 @@ html.menu-open .header-drone-container {
   /* Stelle sicher, dass Iframe Touch-Events empfangen kann */
   .main iframe,
   .main .frame {
-    touch-action: auto !important;
+    touch-action: manipulation !important; /* Verhindere doppeltes Tippen, erlaube Touch-Events */
     pointer-events: auto !important;
     position: relative !important;
   }

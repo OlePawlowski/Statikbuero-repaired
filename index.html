@@ -1472,6 +1472,90 @@ $(document).ready(function() {
       }
     );
   }
+  
+  // Verhindere Seiten-Scrollen, wenn Benutzer im Iframe interagiert
+  var $iframe = $('.main iframe, .main .frame');
+  var isInteractingWithIframe = false;
+  var scrollPosition = 0;
+  
+  if ($iframe.length) {
+    // Desktop: Maus-Events
+    $iframe.on('mouseenter', function() {
+      isInteractingWithIframe = true;
+      scrollPosition = $(window).scrollTop();
+      $('body').css({
+        'overflow': 'hidden',
+        'position': 'fixed',
+        'top': '-' + scrollPosition + 'px',
+        'width': '100%'
+      });
+    });
+    
+    $iframe.on('mouseleave', function() {
+      isInteractingWithIframe = false;
+      $('body').css({
+        'overflow': '',
+        'position': '',
+        'top': '',
+        'width': ''
+      });
+      $(window).scrollTop(scrollPosition);
+    });
+    
+    // Mobile: Touch-Events
+    $iframe.on('touchstart', function() {
+      isInteractingWithIframe = true;
+      scrollPosition = $(window).scrollTop();
+      $('body').css({
+        'overflow': 'hidden',
+        'position': 'fixed',
+        'top': '-' + scrollPosition + 'px',
+        'width': '100%'
+      });
+    });
+    
+    $iframe.on('touchend touchcancel', function() {
+      // Warte kurz, bevor wir das Scrollen wieder aktivieren
+      setTimeout(function() {
+        if (isInteractingWithIframe) {
+          isInteractingWithIframe = false;
+          $('body').css({
+            'overflow': '',
+            'position': '',
+            'top': '',
+            'width': ''
+          });
+          $(window).scrollTop(scrollPosition);
+        }
+      }, 100);
+    });
+    
+    // Verhindere Wheel-Events auf der Seite, wenn Maus über Iframe ist
+    $(window).on('wheel', function(e) {
+      if (isInteractingWithIframe) {
+        e.preventDefault();
+        return false;
+      }
+    });
+    
+    // Verhindere Touch-Scroll-Events auf der Seite, wenn Touch auf Iframe
+    var touchStartY = 0;
+    $(document).on('touchmove', function(e) {
+      if (isInteractingWithIframe) {
+        // Prüfe ob Touch-Event vom Iframe kommt
+        var target = e.target;
+        var $iframeElement = $iframe[0];
+        if (target === $iframeElement || $(target).closest('iframe').length > 0) {
+          // Erlaube Touch-Events im Iframe, verhindere aber Seiten-Scrollen
+          e.stopPropagation();
+        } else {
+          // Verhindere Seiten-Scrollen
+          e.preventDefault();
+          return false;
+        }
+      }
+    });
+  }
 });
 </script>
 
