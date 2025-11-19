@@ -1998,7 +1998,7 @@ html.menu-open .header-drone-container {
 
 .main{
   position: relative;
-  overflow: visible;
+  overflow: hidden; /* Verhindert Scrollen über dem Iframe - wichtig für Drohnensteuerung */
   min-height: 100vh;
   height: 100vh;
 }
@@ -2027,19 +2027,90 @@ html.menu-open .header-drone-container {
   }
 }
 
-/* Desktop: Iframe Styles */
-.main iframe,
-.main .frame {
-  width: 100%;
-  height: 100vh;
-  min-height: 700px;
-  border: none;
-  display: block;
+/* Scroll Indicator für Iframe */
+
+.scroll-down-indicator {
   position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
+  bottom: 20%;
+  right: 40px;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 179, 68, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 179, 68, 0.3);
+  border-radius: 50%;
+  z-index: 10;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
 }
+
+.scroll-down-indicator:hover {
+  background: rgba(255, 179, 68, 0.2);
+  border-color: rgba(255, 179, 68, 0.6);
+  transform: translateY(5px);
+  box-shadow: 0 4px 20px rgba(255, 179, 68, 0.3);
+}
+
+.scroll-down-indicator svg {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.3s ease;
+}
+
+.scroll-down-indicator:hover svg {
+  transform: translateY(3px);
+}
+
+@media (max-width: 991px) {
+  .scroll-down-indicator {
+    bottom: 100px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+  }
+  
+  .scroll-down-indicator svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.main{
+  position: relative;
+  overflow: hidden; /* Verhindert Scrollen über dem Iframe - wichtig für Drohnensteuerung */
+  min-height: 100vh;
+  height: 100vh;
+}
+
+/* Auf Mobile: height: 100vh entfernen, damit man scrollen kann */
+@media (max-width: 991px) {
+  .main {
+    height: auto !important;
+    min-height: auto !important;
+    overflow-y: auto !important;
+  }
+  
+  /* Auf index.html: Iframe-Bereich kann scrollen */
+  body.home-page .main {
+    height: auto !important;
+    min-height: 100vh !important;
+  }
+  
+  /* Stelle sicher, dass html und body scrollen können */
+  html, body {
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    height: auto !important;
+    max-height: none !important;
+  }
+}
+
+/* Desktop: Iframe Styles - KEINE Regeln, damit es sich wie direktes Embed verhält */
 
 
 .main-inner{
@@ -2063,6 +2134,7 @@ html.menu-open .header-drone-container {
   top:0;
   background: -webkit-linear-gradient(bottom,  rgba(39,39,39,1) 0%,rgba(39,39,39,0.95) 26%,rgba(39,39,39,0.6) 100%); /* Chrome10-25,Safari5.1-6 */
   background: linear-gradient(to top,  rgba(39,39,39,1) 0%,rgba(39,39,39,0.95) 26%,rgba(39,39,39,0.6) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  pointer-events: none; /* Erlaube Klicks durch das Overlay zum Iframe */
 }
 
 .main-projects,

@@ -1054,10 +1054,7 @@ h1, h2, h3, h4, h5, h6 {
     padding-top: 80px;
   }
   
-  .main iframe {
-    height: 400px !important;
-    width: 100% !important;
-  }
+  /* .main iframe Regeln entfernt - Iframe soll sich wie direktes Embed verhalten */
   
   /* === 4. TYPOGRAPHY === */
   
@@ -1650,9 +1647,7 @@ h1, h2, h3, h4, h5, h6 {
     width: 100px !important;
   }
   
-  .main iframe {
-    height: 300px !important;
-  }
+  /* .main iframe Regeln entfernt - Iframe soll sich wie direktes Embed verhalten */
   
   .text-parallax-content {
     font-size: 6rem !important;
@@ -1798,10 +1793,7 @@ h1, h2, h3, h4, h5, h6 {
   }
   
   /* Iframe Responsive Fix */
-  .main iframe {
-    min-height: 600px;
-    border: none;
-  }
+  /* .main iframe Regeln entfernt - Iframe soll sich wie direktes Embed verhalten */
   
   /* Project Carousel Mobile */
   .projects-carousel .owl-item {
@@ -1865,9 +1857,7 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (max-width: 991px) and (orientation: landscape) {
   
-  .main iframe {
-    height: 350px !important;
-  }
+  /* .main iframe Regeln entfernt - Iframe soll sich wie direktes Embed verhalten */
   
   .navbar-collapse {
     max-height: calc(100vh - 60px);
