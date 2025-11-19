@@ -1998,7 +1998,7 @@ html.menu-open .header-drone-container {
 
 .main{
   position: relative;
-  overflow: hidden; /* Verhindert Scrollen über dem Iframe - wichtig für Drohnensteuerung */
+  overflow: visible;
   min-height: 100vh;
   height: 100vh;
 }
@@ -2081,7 +2081,7 @@ html.menu-open .header-drone-container {
 
 .main{
   position: relative;
-  overflow: hidden; /* Verhindert Scrollen über dem Iframe - wichtig für Drohnensteuerung */
+  overflow: visible;
   min-height: 100vh;
   height: 100vh;
 }
@@ -2122,6 +2122,7 @@ html.menu-open .header-drone-container {
   top: 0;
   left: 0;
   z-index: 1;
+  pointer-events: auto; /* Stelle sicher, dass Iframe interaktiv ist */
 }
 
 
