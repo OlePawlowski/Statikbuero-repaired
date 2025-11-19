@@ -1107,20 +1107,20 @@ html.menu-open .header-drone-container {
     pointer-events: auto !important;
   }
   
-  /* Alle Menüelemente klickbar machen */
-  .nav-menu-center,
-  .nav-menu-vertical,
-  .nav-item,
-  .nav-item-large,
-  .nav-item a,
-  .nav-item-large a,
-  .nav-submenu,
-  .nav-submenu li a,
-  .nav-vertical-left,
-  .nav-vertical-left a,
-  .nav-language-center,
-  .nav-social-bottom-right,
-  .nav-social-bottom-right a {
+  /* Alle Menüelemente klickbar machen - nur wenn Menü aktiv ist */
+  .navbar-desctop-des.active .nav-menu-center,
+  .navbar-desctop-des.active .nav-menu-vertical,
+  .navbar-desctop-des.active .nav-item,
+  .navbar-desctop-des.active .nav-item-large,
+  .navbar-desctop-des.active .nav-item a,
+  .navbar-desctop-des.active .nav-item-large a,
+  .navbar-desctop-des.active .nav-submenu,
+  .navbar-desctop-des.active .nav-submenu li a,
+  .navbar-desctop-des.active .nav-vertical-left,
+  .navbar-desctop-des.active .nav-vertical-left a,
+  .navbar-desctop-des.active .nav-language-center,
+  .navbar-desctop-des.active .nav-social-bottom-right,
+  .navbar-desctop-des.active .nav-social-bottom-right a {
     pointer-events: auto !important;
   }
   
@@ -1153,12 +1153,20 @@ html.menu-open .header-drone-container {
     transform: translateY(-50%) !important;
     text-align: left !important;
     z-index: 1004 !important;
+    pointer-events: none !important; /* Standardmäßig nicht klickbar */
+  }
+  
+  .navbar-desctop-des.active .nav-menu-center {
     pointer-events: auto !important;
   }
   
   .nav-menu-vertical {
     align-items: flex-start !important;
     gap: 24px !important;
+    pointer-events: none !important; /* Standardmäßig nicht klickbar */
+  }
+  
+  .navbar-desctop-des.active .nav-menu-vertical {
     pointer-events: auto !important;
   }
   
@@ -1274,8 +1282,8 @@ html.menu-open .header-drone-container {
     pointer-events: none !important;
   }
   
-  .nav-vertical-left a,
-  .nav-vertical-left .vertical-text {
+  .navbar-desctop-des.active .nav-vertical-left a,
+  .navbar-desctop-des.active .nav-vertical-left .vertical-text {
     pointer-events: auto !important;
   }
   
@@ -1377,7 +1385,7 @@ html.menu-open .header-drone-container {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  pointer-events: auto;
+  pointer-events: none; /* Standardmäßig nicht klickbar */
   text-align: left;
   visibility: visible;
   box-sizing: border-box;
@@ -1388,6 +1396,11 @@ html.menu-open .header-drone-container {
   padding: 0;
   margin: 0;
   gap: 42px;
+}
+
+/* Nur wenn Menü aktiv ist, klickbar machen */
+.navbar-desctop-des.active .nav-menu-center {
+  pointer-events: auto;
 }
 
 .nav-menu-vertical {
@@ -1408,7 +1421,7 @@ html.menu-open .header-drone-container {
   letter-spacing: 0;
   color: var(--text-light);
   visibility: visible;
-  pointer-events: auto;
+  pointer-events: none; /* Standardmäßig nicht klickbar */
   text-align: left;
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
@@ -1419,6 +1432,11 @@ html.menu-open .header-drone-container {
   padding: 0;
   margin: 0;
   gap: 42px;
+}
+
+/* Nur wenn Menü aktiv ist, klickbar machen */
+.navbar-desctop-des.active .nav-menu-vertical {
+  pointer-events: auto;
 }
 
 .nav-item,
@@ -1576,6 +1594,11 @@ html.menu-open .header-drone-container {
   flex-direction: column-reverse;
   gap: 24px;
   align-items: flex-start;
+  pointer-events: none; /* Standardmäßig nicht klickbar */
+}
+
+/* Nur wenn Menü aktiv ist, klickbar machen */
+.navbar-desctop-des.active .nav-vertical-left {
   pointer-events: auto;
 }
 
