@@ -253,46 +253,24 @@ img {
     visibility: visible !important;
   }
   
-  /* Reduziere will-change auf Mobile - komplett deaktivieren */
+  /* Reduziere will-change auf Mobile */
+  .animate-on-scroll,
+  .slide-in-left,
+  .slide-in-right,
+  .slide-in-up,
+  .fade-in {
+    will-change: auto;
+  }
+  
+  /* Einfachere Animationen für Touch-Geräte */
   * {
-    will-change: auto !important;
     -webkit-tap-highlight-color: transparent;
-  }
-  
-  /* Reduziere teure CSS-Eigenschaften auf Mobile für bessere Performance */
-  /* Box-shadow und backdrop-filter sind sehr teuer auf Mobile */
-  * {
-    box-shadow: none !important;
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-    filter: none !important;
-  }
-  
-  /* Erlaube minimale Box-Shadow nur für aktive interaktive Elemente */
-  .btn:active,
-  .btn-enhanced:active,
-  .hamburger-menu-toggle:active {
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) !important;
   }
   
   /* Reduziere komplexe Transforms auf Mobile */
   .service-item:hover,
   .project:hover {
     transform: none;
-  }
-  
-  /* Deaktiviere alle Hover-Effekte auf Mobile (Touch-Geräte haben kein Hover) */
-  *:hover {
-    transform: none !important;
-    transition: none !important;
-  }
-  
-  /* Content-visibility für bessere Performance bei langen Listen */
-  .service-item,
-  .project,
-  .faq-item-enhanced {
-    content-visibility: auto;
-    contain-intrinsic-size: 200px;
   }
 }
 

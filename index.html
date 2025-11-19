@@ -1353,20 +1353,8 @@ $(document).ready(function() {
         
         return false;
       } else {
-        // Für Links zu anderen Seiten: Schließe Menü SOFORT und navigiere
-        // Auf Mobile: Warte kurz damit Menü geschlossen ist, dann navigiere
-        if ($(window).width() <= 991) {
-          e.preventDefault();
-          closeMenu();
-          // Kurze Verzögerung damit Menü geschlossen ist, dann navigiere
-          setTimeout(function() {
-            window.location.href = href;
-          }, 150);
-          return false;
-        } else {
-          // Desktop: Schließe Menü, Navigation passiert automatisch
-          closeMenu();
-        }
+        // Für Links zu anderen Seiten: Schließe Menü SOFORT
+        closeMenu();
       }
     }
     // Submenü-Links (z.B. "Tragwerksplanung", "Bauantrag") schließen auch das Menü
@@ -1415,17 +1403,7 @@ $(document).ready(function() {
         
         return false;
       } else {
-        // Für normale Links im Submenü: Schließe Menü und navigiere
-        if ($(window).width() <= 991) {
-          e.preventDefault();
-          closeMenu();
-          setTimeout(function() {
-            window.location.href = href;
-          }, 150);
-          return false;
-        } else {
-          closeMenu();
-        }
+        closeMenu();
       }
     }
   });
