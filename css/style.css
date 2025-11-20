@@ -72,9 +72,6 @@
 @import url('magnific-popup.css');
 @import url('owl.carousel.css');
 @import url('owl.transitions.css');
-@import url('settings.css');
-@import url('layers.css');
-@import url('navigation.css');
 
 
 html{
@@ -1006,10 +1003,9 @@ label.error{
       transform: translateZ(0);
       -webkit-backface-visibility: hidden;
       backface-visibility: hidden;
-      -webkit-overflow-scrolling: touch !important;
       /* Optimierung für flüssigeres Scrollen */
       overscroll-behavior: contain;
-      -webkit-overflow-scrolling: touch;
+      -webkit-overflow-scrolling: touch !important;
     }
     
     /* Scroll-Performance für Sections optimieren */
@@ -1154,10 +1150,12 @@ html.menu-open .header-drone-container {
     transform: translateY(-50%) !important;
     text-align: left !important;
     z-index: 1004 !important;
-    pointer-events: none !important; /* Standardmäßig nicht klickbar */
+    display: none !important; /* Standardmäßig ausgeblendet */
+    pointer-events: none !important;
   }
   
   .navbar-desctop-des.active .nav-menu-center {
+    display: flex !important; /* Nur wenn Menü aktiv, anzeigen */
     pointer-events: auto !important;
   }
   
@@ -1386,11 +1384,11 @@ html.menu-open .header-drone-container {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  pointer-events: none; /* Standardmäßig nicht klickbar */
+  pointer-events: none;
   text-align: left;
   visibility: visible;
   box-sizing: border-box;
-  display: flex;
+  display: none; /* Standardmäßig ausgeblendet */
   flex-direction: column;
   align-items: flex-start;
   list-style: none;
@@ -1399,8 +1397,9 @@ html.menu-open .header-drone-container {
   gap: 42px;
 }
 
-/* Nur wenn Menü aktiv ist, klickbar machen */
+/* Nur wenn Menü aktiv ist, anzeigen und klickbar machen */
 .navbar-desctop-des.active .nav-menu-center {
+  display: flex;
   pointer-events: auto;
 }
 

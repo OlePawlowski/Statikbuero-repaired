@@ -10,7 +10,8 @@
 }
 
 /* Lazy Loading für Bilder - wird durch HTML-Attribut unterstützt */
-img {
+/* Vorsichtig: content-visibility nur für Bilder außerhalb Viewport */
+img[loading="lazy"] {
   content-visibility: auto;
   contain-intrinsic-size: 300px;
 }
@@ -336,10 +337,9 @@ body {
 }
 
 /* Hauptcontainer für bessere Scroll-Performance */
-.main,
-.container,
+/* Reduziert: GPU-Beschleunigung nur wo wirklich nötig */
 .section {
-  /* GPU-Beschleunigung */
+  /* GPU-Beschleunigung nur für Sections */
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
   /* Verhindere Repaints */

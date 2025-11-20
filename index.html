@@ -14,13 +14,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <!-- Fallback: Inter als ähnliche moderne Schriftart -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link href="css/style.css" rel="stylesheet" media="screen">
-<link href="css/enhanced-styles.css" rel="stylesheet" media="screen">
-<link href="css/des-inspiration.css" rel="stylesheet" media="screen">
-<link href="css/liquid-glass.css" rel="stylesheet" media="screen">
-<link href="css/neuemachina-font.css" rel="stylesheet" media="screen">
-<link href="css/futuristic-design.css" rel="stylesheet" media="screen">
-<link href="css/performance-animations.css" rel="stylesheet" media="screen">
+<link href="css/app.bundle.css" rel="stylesheet" media="screen">
 <script>
 // Verhindere direktes Springen zu Hash beim Laden der Seite
 // Dies muss sehr früh ausgeführt werden, bevor der Browser springt
@@ -208,7 +202,7 @@
     
     <!-- Home / Hero Section -->
     
-    <main class="hero-main" style="z-index: 100000000000000000000">
+    <main class="hero-main">
       <iframe class="hero-iframe"
         src="https://drone-map-ix8j.vercel.app/embed"
         allow="fullscreen"
@@ -753,7 +747,7 @@
           </header>
           <!-- Elfsight Google Reviews | Untitled Google Reviews -->
           <div class="section-content">
-            <script src="https://elfsightcdn.com/platform.js" ></script>
+            <script src="https://elfsightcdn.com/platform.js" defer></script>
             <div class="elfsight-app-ead9122e-f2bf-4770-8f37-ee1a083c4c4d" ></div>
           </div>
           <div>
@@ -770,7 +764,6 @@
           </header>
           <!-- Elfsight Google Reviews | Untitled Google Reviews -->
           <div class="section-content">
-            <script src="https://elfsightcdn.com/platform.js" ></script>
             <div class="elfsight-app-ead9122e-f2bf-4770-8f37-ee1a083c4c4d" ></div>
           </div>
           <div class="button-div">
@@ -943,17 +936,8 @@
 
 <!-- SCRIPTS -->
 
-<script src="js/perf-helpers.js" defer></script>
 <script src="js/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/smoothscroll.js" defer></script>
-<script src="js/jquery.validate.min.js" defer></script>
-<script src="js/wow.min.js" defer></script>
-<script src="js/jquery.stellar.min.js" defer></script>
-<script src="js/jquery.magnific-popup.js" defer></script>
-<script src="js/owl.carousel.min.js" defer></script>
-<script src="js/interface.js" defer></script>
-<script src="js/scroll-animations.js" defer></script>
+<script src="js/app.bundle.js" defer></script>
 
 
 <style>
