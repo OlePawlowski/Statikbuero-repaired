@@ -275,15 +275,16 @@
         </div>
       </section>
       <section class="projects section">
-        <div class="container">
-          <h2 class="section-title slide-in-left">Unseren letzten <span class="text-primary">Projekte</span></h2>
-        </div>
+        <header class="section-header">
+          <h2 class="section-title">Unsere letzten <span class="text-primary">Projekte</span></h2>
+          <strong class="fade-title-left">Projekte</strong>
+        </header>
         <div class="section-content">
           <div class="projects-carousel js-projects-carousel js-projects-gallery animate-stagger">
             <div class="project project-light slide-in-left">
               <a href="img/bg/Neubau-11-Parteienhauses-Tempelhof.jpg" title="Projekt 1">
                 <figure>
-                  <img alt="" src="img/bg/Neubau-11-Parteienhauses-Tempelhof.jpg" loading="lazy">
+                  <img alt="" src="img/bg/Neubau-11-Parteienhauses-Tempelhof.jpg">
                   <figcaption>
                     <h3 class="project-title">
                       11-Parteienhauses in Berlin Tempelhof
@@ -299,7 +300,7 @@
             <div class="project project-light slide-in-right">
               <a href="img/bg/Projekt-DB-Gleisquerung-Veddeljpg.jpg" title="Projekt 2">
                 <figure>
-                  <img alt="" src="img/bg/Projekt-DB-Gleisquerung-Veddeljpg.jpg" loading="lazy">
+                  <img alt="" src="img/bg/Projekt-DB-Gleisquerung-Veddeljpg.jpg">
                   <figcaption>
                     <h3 class="project-title">
                       DB-Gleisquerung Veddel in Hamburg
@@ -315,7 +316,7 @@
             <div class="project slide-in-left">
               <a href="img/bg/Neubau.jpg" title="Projekt 3">
                 <figure>
-                  <img alt="" src="img/bg/Neubau.jpg" loading="lazy">
+                  <img alt="" src="img/bg/Neubau.jpg">
                   <figcaption>
                     <h3 class="project-title">
                       Mehrfamilienhauses in Worms
@@ -331,7 +332,7 @@
             <div class="project slide-in-right">
               <a href="img/bg/28-Parteien-Haus-Architektur.jpg" title="Projekt 4">
                 <figure>
-                  <img alt="" src="img/bg/28-Parteien-Haus-Architektur.jpg" loading="lazy">
+                  <img alt="" src="img/bg/28-Parteien-Haus-Architektur.jpg">
                   <figcaption>
                     <h3 class="project-title">
                       28 Parteien Haus Bauzeit 1,5 Jahre
@@ -418,22 +419,25 @@
             }
           }
           
-          /* Owl Carousel auf Mobile deaktivieren - verhindert Layout-Shifts */
+          /* Mobile: Feste Container-Größen verhindern Layout-Shifts */
           @media (max-width: 991px) {
-            .js-projects-carousel.owl-carousel {
-              display: block !important;
+            .projects-carousel .project figure {
+              width: 100%;
+              height: 0;
+              padding-bottom: 70%;
+              position: relative;
+              overflow: hidden;
+              background: #2a2a2a;
             }
             
-            .js-projects-carousel .owl-stage-outer,
-            .js-projects-carousel .owl-stage,
-            .js-projects-carousel .owl-item {
-              display: block !important;
-              transform: none !important;
-            }
-            
-            .js-projects-carousel .project {
-              width: 100% !important;
-              margin-bottom: 2rem !important;
+            .projects-carousel .project figure img {
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              display: block;
             }
           }
         </style>
@@ -1402,33 +1406,6 @@ $(document).ready(function() {
         $(this).find('.service-icon-enhanced').removeClass('pulse');
       }
     );
-  }
-  
-  // Owl Carousel NUR auf Desktop initialisieren - auf Mobile deaktivieren um Layout-Shifts zu vermeiden
-  if ($(window).width() > 991) {
-    if ($(".js-projects-carousel").length && typeof $.fn.owlCarousel !== 'undefined') {
-      $(".js-projects-carousel").owlCarousel({
-        itemsMobile:[479,1],
-        itemsTablet:[768,2],
-        itemsDesktopSmall:[979,2],
-        itemsDesktop:[1250,3],
-        items:4,
-        pagination:false,
-        navigation:true,
-        navigationText: ["Zurück", "Weiter"],
-        slideSpeed:700,
-        responsiveRefreshRate:0
-      });
-    }
-  } else {
-    // Auf Mobile: Zerstöre Owl Carousel falls es bereits initialisiert wurde
-    if ($(".js-projects-carousel").length && typeof $.fn.owlCarousel !== 'undefined') {
-      var $carousel = $(".js-projects-carousel");
-      if ($carousel.data('owlCarousel')) {
-        $carousel.trigger('destroy.owl.carousel');
-        $carousel.removeClass('owl-carousel owl-theme');
-      }
-    }
   }
   
   // Blockiere Seiten-Scrollen komplett wenn Iframe aktiv - wie natives Spiel
